@@ -64,7 +64,7 @@ if(isset($_POST["loginButton"])){
 
 }
 
-if(isset($_POST["submitButton"])){
+if(isset($_POST["insertButton"])){
 
     
     $student_id = $_POST['student_id'];
@@ -88,27 +88,35 @@ if(isset($_POST["submitButton"])){
     }
 };
 
-if(isset($_POST["deleteButton"])){
+if(isset($_POST["updateButton"])){
 
-    $student_id= $_POST['student_id'];
+    
+    $id = $_POST['id'];
+    $student_id = $_POST['student_id'];
     $fname = $_POST['fname'];
     $mname = $_POST['mname'];
     $lname = $_POST['lname'];
     $address = $_POST['address'];
     $birthday = $_POST['birthday'];
-  
 
-    $insert_query = "INSERT INTO `student_information`(`student_id`, `fname`, `mname`, `lname`, `address`, `birthday`) VALUES ('$student_id','$password','$fname','$mname','$lname','$address','$birthday')";
-    $insert_result = mysqli_query( $con, $insert_query );
 
-    if($insert_result){
-        $_SESSION['status'] = "Successfully Submitted";
+    $update_query = "UPDATE `student_information` SET `student_id`='$student_id',`fname`='$fname',`mname`='$mname',`lname`='$lname',`address`='$address',`birthday`='$birthday' WHERE `id`='$id'"; 	
+    $update_result = mysqli_query( $con, $update_query );
+    
+
+    if($update_result){
+        $_SESSION['status'] = "Successfully Updated";
         $_SESSION['status_code'] = "success";
         header("Location: index.php");
    
     }else{
     echo "Error";
     }
+};
 
-}
-?>
+
+
+
+
+
+

@@ -51,7 +51,7 @@ include ("config.php");
                     </div>
 
                     <div class="col-md-12 mb-3 text-center">
-                        <button type="submit" class="btn btn-primary"  style="float: right;" name="submitButton">Submit</button>
+                        <button type="insert" class="btn btn-primary"  style="float: right;" name="insertButton">Submit</button>
                     </div>
                 </div>
             </form>

@@ -32,6 +32,7 @@ include ("config.php");
                     <th class="col">Last Name</th>
                     <th class="col">Address</th>
                     <th class="col">Birthday</th>
+                    <th class="col">Date Created</th>
             
                     
                   </tr>
@@ -48,20 +49,22 @@ include ("config.php");
                 {
                 ?>
                     <tr>
+                <td><b><?= $row['student_id']; ?></td>
                 <td><b><?= $row['fname']; ?></td>
                 <td><?= $row['mname']; ?></td>
                 <td><?= $row['lname']; ?></td>
                 <td><?= $row['address']; ?></td>
                 <td><?= $row['birthday']; ?></td>
+                <td><?= $row['dateCreated']; ?></td>
             
               
 
                 <td>
 
-                <a type="button" class="btn btn-outline-primary" href="index.php?id=<?=$row['id'];?>">VIEW</a>
+                <a type="button" class="btn btn-outline-primary" href="view.php?id=<?=$row['id'];?>">VIEW</a>
                 <a type="button" class="btn btn-outline-warning" href="update.php?id=<?=$row['id'];?>">UPDATE</a>
                 
-                <form action="process.php" method="POST">
+                <form action="delete.php" method="POST">
                 <input type="hidden" name="id" value="<?= $row['id']; ?>">
                 <button type="submit" class="btn btn-outline-danger">DELETE</button>
                 </form>

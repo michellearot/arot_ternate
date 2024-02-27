@@ -23,7 +23,7 @@ include ("config.php");
         if(isset($_GET['id']))
         {
             $id = $_GET['id'];
-            $users = "SELECT * FROM `student` WHERE `id` = '$id'";
+            $users = "SELECT * FROM `student_information` WHERE `id` = '$id'";
             $users_run = mysqli_query($con, $users);
 
             if(mysqli_num_rows($users_run) > 0)
@@ -32,48 +32,43 @@ include ("config.php");
                 {
                 ?>
 
-            <form action="update.php" method="POST">
+            <form action="process.php" method="POST">
 
             <input type="hidden" name="id" value="<?=$user['id'];?>">
 
                 <div class="row">
                     <div class="col-md-12 mb-3">
-                        <label for="studentId" class="form-label">Student I.D</label>
-                        <input type="text" class="form-control" id="studentId" value="<?=$user['student_number'];?>" name="studentid">
+                        <label for="student_id" class="form-label">Student ID</label>
+                        <input type="text" class="form-control" id="student_id" value="<?=$user['student_id'];?>" name="student_id">
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="firstName" name="firstName">
+                        <label for="fname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="fname" value="<?=$user['fname'];?>" name="fname">
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <label for="middlename" class="form-label">Middle Name</label>
-                        <input type="text" class="form-control" id="middlename" name="middlename">
+                        <label for="mname" class="form-label">Middle Name</label>
+                        <input type="text" class="form-control" id="mname" value="<?=$user['mname'];?>" name="mname">
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName">
+                        <label for="lname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lname" value="<?=$user['lname'];?>" name="lname">
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <label for="dateOfBirth" class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" value="<?=$user['address'];?>" name="address">
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="text" class="form-control" id="email" name="email">
+                        <label for="birthday" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="birthday" value="<?=$user['birthday'];?>" name="birthday">
                     </div>
-
-                    <div class="col-md-4 mb-3">
-                        <label for="phoneNumber" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
-                    </div>
-
+                   
                     <div class="col-md-12 mb-3 text-center">
-                        <button type="submit" class="btn btn-primary"  style="float: right;" name="submit">Submit</button>
+                        <button type="update" class="btn btn-primary"  style="float: right;" name="updateButton">Submit</button>
                     </div>
                 </div>
             </form>
